@@ -16,19 +16,36 @@ let atletas = [
       notas: [10, 10, 10, 9, 9.5]
     }
    ];
-let nomesDosCompetidores = 0
+let nomeDosCompetidores = 0
 let mediaValida = 0
 let notasObtidas = 0
-for (let i = 0; i < atletas.length; i++){
-
-    nomesDosCompetidores = atletas.map(function(nomes){
-        return nomes.nome
-    })
-    notasObtidas = atletas.map(function(notas){
-        let total = notas.notas
-        total.sort(function(a, b) {
-            return a - b;
-        });
-        return total
-    })
+for (let i = 0; i <atletas.length; i++){
+  
+  nomeDosCompetidores = atletas.map(function(nomes){
+    return nomes.nome
+  })
+  notasObtidas = atletas.map(function(notas){
+    let total = notas.notas
+    total.sort(function(a, b){
+      return a - b;
+    });
+    return total
+  })
 }
+
+for (let i = 0; i<atletas.length; i++){
+  switch(i){
+    case i:
+      console.log(`Atletas: ${nomeDosCompetidores[i]}`);
+      console.log(`Notas Obtidas: ${notasObtidas[i]}`);
+      let notasAtleta = notasObtidas[i].slice(1, notasObtidas[1].length-1)
+      let soma = notasAtleta.reduce(function(total, atual){ 
+        return (total + atual)
+      })
+      let media = soma/notasAtleta.length
+      console.log(`Média Válida ${media}`)
+
+  }
+}
+
+
